@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>available items</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cost</th>
+               
+                <!-- Add more headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use th:each to iterate over the list 'x' -->
+             <tr th:each="item : ${items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.cost}"></td>
+                <td><input type="hidden" th:attr="name='id', value=${id}" />
+                     <a th:href="@{'/addtocart?id=' + ${item.id} + '&uid=' + ${id}}">addtocart</a><!-- Replaced 'id' with 'uid' -->
+
+               </td>
+             </tr>
+        </tbody>
+    </table>
+  <a th:href="@{/gotoadminmenu}">gotoadmincontrollermenu</a>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>admin available items</h1>
+    <table>
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Cost</th>
+                <th>deleteitem</th>
+               
+                <!-- Add more headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+    <!-- Use th:each to iterate over the list 'items' -->
+    <tr th:each="item : ${items}">
+        
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.cost}"></td>
+        <td><a th:href="@{'/deletes?id=' + ${item.id}}">delete</a></td>
+        <td><a th:href="@{'/update?id=' + ${item.id}}">update</a></td>
+    </tr>
+   
+</tbody>
+
+    </table>
+    <a th:href="@{/gotoadditemspage}">additemspage</a>
+     <a th:href="@{/logout}">logout</a>
+
+  
+
+
+</body>
+</html>

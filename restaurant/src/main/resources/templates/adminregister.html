@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>please register here</h1>
+    <form th:action="@{/adminsave}" th:object="${admin}" method="post">
+        <label>name</label><br>
+        <input type="text" th:field="*{name}" /><br>
+        
+        <label>password</label><br>
+        <input type="password" th:field="*{password}" /><br>
+        
+        <button type="submit">save</button>
+    </form>
+</body>
+</html>

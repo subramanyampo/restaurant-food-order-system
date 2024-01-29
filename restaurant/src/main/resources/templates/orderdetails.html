@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Cost</th>
+                <th>Cancel Item</th>
+                <!-- Add more headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item, itemStatus : ${session.cartItems}">
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.cost}"></td>
+                
+                <td>
+                    <form th:action="@{'/cancelItem?itemId=' + ${item.id} + '&uid=' + ${uid}}" method="post">
+    <!-- Your form content goes here -->
+
+
+						
+						<input type="hidden" name="itemId" th:value="${item.id}">
+						<input type="hidden" name="uid" th:value="${uid}">
+						<button type="submit">Cancel</button>
+					</form>
+
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Total Cost:</td>
+                <td th:text="${totalcost}"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <a th:href="@{'/userviewallitems?uid=' + ${uid}}">Go to View All Items page</a>
+</body>
+</html>

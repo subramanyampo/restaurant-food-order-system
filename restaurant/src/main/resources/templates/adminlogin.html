@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>this is admin login page</h1>
+	<form th:action="@{/adminloginprocess}" th:object="${admin}" method="get">
+        <label>name</label><br>
+        <input type="text" th:field="*{name}" /><br>
+        
+        <label>password</label><br>
+        <input type="text" th:field="*{password}" /><br>
+        <button type="submit">save</button>
+	</form>
+</body>
+</html>

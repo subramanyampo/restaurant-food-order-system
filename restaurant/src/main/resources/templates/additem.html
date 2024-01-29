@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>additem here</h1>
+	<form th:action="@{/items}" th:object="${items}" method="post">
+        <label>itemname</label><br>
+        <input type="text" th:field="*{name}" /><br>
+        
+        <label>cost</label><br>
+        <input type="text" th:field="*{cost}" /><br>
+        
+        
+        
+        <button type="submit">save</button>
+    </form>
+
+</body>
+</html>
